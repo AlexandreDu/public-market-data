@@ -1,10 +1,10 @@
-import type { RecenTradesResponse } from '../../types';
+import type { RecentTradesResponse } from '../../types';
 
 import { useState } from 'react';
 import { getRecentTrades } from '../../apiRequests/recentTrades';
 
 export function useRecentTrades() {
-  const [recentTrades, setRecentTrades] = useState<RecenTradesResponse | null>(
+  const [recentTrades, setRecentTrades] = useState<RecentTradesResponse | null>(
     null
   );
   const [isLoadingRecentTrades, setIsLoadingRecentTrades] = useState(false);

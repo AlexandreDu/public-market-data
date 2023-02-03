@@ -41,7 +41,7 @@ export type Ticker24hResponse = TickerResponse & {
   lastQty: string;
 };
 
-export type RecenTradesResponse = {
+export type RecentTradesResponse = {
   id: number;
   price: string;
   qty: string;
@@ -61,11 +61,6 @@ export type GetTickerParams = {
 };
 
 export type GetRecentTradesParams = GetTickerParams;
-
-// components
-export type ThemesProviderProps = React.PropsWithChildren;
-
-export type LayoutProps = React.PropsWithChildren;
 
 // ui components
 
@@ -95,5 +90,18 @@ export type HeadCellProps = React.PropsWithChildren;
 
 export type DataCellProps = React.PropsWithChildren;
 
+// components
+export type ThemesProviderProps = React.PropsWithChildren;
+
+export type TickerTableProps = {
+  ticker: TickerResponse | Ticker24hResponse;
+};
+
+export type RecentTradesTableProps = {
+  recentTrades: RecentTradesResponse;
+};
+
+export type LayoutProps = React.PropsWithChildren;
+
 // utils
-export type StrToFixed = (str: string) => string;
+export type StrToFixed = (str: string, digit: number) => string;
