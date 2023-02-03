@@ -1,5 +1,7 @@
+import type { FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
 import type { AxiosRequestConfig } from 'axios';
 import { theme } from '../styles/themes';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export type Theme = typeof theme;
 
@@ -90,7 +92,13 @@ export type HeadCellProps = React.PropsWithChildren<
   React.ComponentPropsWithoutRef<'th'>
 >;
 
-export type DataCellProps = React.PropsWithChildren;
+export type DataCellProps = React.PropsWithChildren<
+  React.ComponentPropsWithoutRef<'td'>
+>;
+
+export type IconProps = FontAwesomeIconProps;
+
+export type ArrowProps = Omit<IconProps, 'icon'>;
 
 // components
 export type ThemesProviderProps = React.PropsWithChildren;
@@ -112,3 +120,9 @@ export type UseSortProps<T> = {
 
 // utils
 export type StrToFixed = (str: string, digit: number) => string;
+
+export type GetSortIconProps = {
+  sortedFields: string[];
+  sortDirections: string[];
+  field: string;
+};

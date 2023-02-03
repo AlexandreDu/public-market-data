@@ -5,4 +5,6 @@ export const TableWrapper = styled.div`
 export const Table = styled.table`
   text-align: center;
   border-collapse: collapse;
+  margin: 0 auto;
+  width: 100%;
 `;

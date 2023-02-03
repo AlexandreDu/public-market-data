@@ -13,11 +13,18 @@ import { propertiesNames } from '../../../propertiesNames';
 
 import { timestampToStr } from '../../../utils/timestampToStr';
 
+import { getSortIcon } from '../../../utils/components/recentTradesTable';
+
 export function RecentTradesTable({ recentTrades }: RecentTradesTableProps) {
   const recentTradesHeadList: JSX.Element[] = [];
   const recentTradesBodyList: JSX.Element[] = [];
 
-  const { sortedList, handleClick } = useSort({ list: recentTrades });
+  const {
+    sortedList,
+    handleClick,
+    fields: sortedFields,
+    sortDirections,
+  } = useSort({ list: recentTrades });
 
   // recentTrades is an array, we use .entries to get an index in order to push only one time the header items
   for (const [index, trade] of sortedList.entries()) {
@@ -34,12 +41,17 @@ export function RecentTradesTable({ recentTrades }: RecentTradesTableProps) {
           enableSort = true;
         }
 
+        const sortIcon = getSortIcon(sortedFields, sortDirections, prop);
+
         recentTradesHeadList.push(
           <HeadCell
             key={prop + index}
             {...(enableSort ? { onClick: () => handleClick(prop) } : {})}
+            style={{ cursor: enableSort ? 'pointer' : 'auto' }}
+            {...(sortIcon ? { icon: sortIcon } : {})}
           >
             {propertiesNames[prop as keyof typeof propertiesNames]}
+            {sortIcon}
           </HeadCell>
         );
       }

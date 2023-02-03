@@ -5,5 +5,6 @@ export const Input = styled.input`
     border: none;
     font-size: ${theme.fontSizes.md};
   
+  
   `}
 `;

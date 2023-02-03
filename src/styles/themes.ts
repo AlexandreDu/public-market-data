@@ -41,5 +41,6 @@ export const theme = {
   colors: {
     black: '#111',
     white: '#fff',
+    grey: '#708090',
   },
 };

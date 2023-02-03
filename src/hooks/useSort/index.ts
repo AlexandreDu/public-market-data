@@ -5,6 +5,8 @@ import { orderBy } from 'lodash';
 export function useSort<T>({ list }: UseSortProps<T>): {
   sortedList: T[];
   handleClick: (fieldName: string) => void;
+  fields: string[];
+  sortDirections: ('asc' | 'desc')[];
 } {
   const [fields, setFields] = useState<string[]>([]);
   const [sortDirections, setDirections] = useState<('asc' | 'desc')[]>([]);
@@ -41,7 +43,7 @@ export function useSort<T>({ list }: UseSortProps<T>): {
   const sortedList = orderBy(list, fields, sortDirections);
 
   // orderBy creates a new array
-  return { sortedList, handleClick };
+  return { sortedList, handleClick, fields, sortDirections };
 }
 
 function removeItem<T>(index: number, arr: T[]): T[] {

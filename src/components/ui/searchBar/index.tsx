@@ -5,6 +5,8 @@ import { useState } from 'react';
 import * as Styled from './styles';
 import { Input } from './input';
 import { AutoComplete } from './autoComplete';
+import { Icon } from '../icon';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 export function SearchBar({ fullList, handleSearch }: SearchBarProps) {
   const [query, setQuery] = useState('');
@@ -31,11 +33,15 @@ export function SearchBar({ fullList, handleSearch }: SearchBarProps) {
         handleSearch(query.toUpperCase());
       }}
     >
-      <Input
-        name="query"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
+      <Styled.InputIconWrapper>
+        <Icon icon={faMagnifyingGlass} />
+        <Input
+          name="query"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="search a crypto pair"
+        />
+      </Styled.InputIconWrapper>
       {autoCompleteList && (
         <AutoComplete
           list={autoCompleteList}

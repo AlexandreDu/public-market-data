@@ -5,6 +5,7 @@ import { useTicker } from '../hooks/useTicker';
 import { useTicker24h } from '../hooks/useTicker24h';
 import { useRecentTrades } from '../hooks/useRecentTrades';
 
+import { HomePageWrapper } from './styles';
 import { TickerTable } from '../components/cryptoTable/ticker';
 import { RecentTradesTable } from '../components/cryptoTable/recentTrades';
 
@@ -36,7 +37,7 @@ export function HomePage() {
   }
 
   return (
-    <>
+    <HomePageWrapper>
       <SearchBar fullList={currenciesPairs} handleSearch={handleSearch} />
       {!isLoadingTicker && ticker && <TickerTable ticker={ticker} />}
       {!isLoadingTicker24h && ticker24h && <TickerTable ticker={ticker24h} />}
@@ -55,6 +56,6 @@ export function HomePage() {
           visible={true}
         />
       )}
-    </>
+    </HomePageWrapper>
   );
 }
