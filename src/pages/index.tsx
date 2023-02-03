@@ -35,9 +35,6 @@ export function HomePage() {
     retrieveRecentTrades(symbol);
   }
 
-  // const ticker24hHeadList = ticker24h && Object.keys(ticker24h);
-  // const ticker24hBodyList = ticker24h && Object.values(ticker24h);
-
   return (
     <>
       <SearchBar fullList={currenciesPairs} handleSearch={handleSearch} />

@@ -9,30 +9,29 @@ import { DataCell } from '../../ui/table/DataCell';
 
 import { strToFixed } from '../../../utils/strToFixed';
 
-export function RecentTradesTable({ recentTrades }: RecentTradesTableProps) {
-  const recentTradesHeadList = [
-    'best match',
-    'buyer maker',
-    'price',
-    'quantity',
-    'quote quantity',
-    'time',
-  ].map((headElement) => <HeadCell key={headElement}>{headElement}</HeadCell>);
+import { propertiesNames } from '../../../propertiesNames';
 
-  const recentTradesBodyList = recentTrades?.map(
-    ({ id, isBestMatch, isBuyerMaker, price, qty, quoteQty, time }) => {
-      return (
-        <TableRow key={id}>
-          <DataCell>{isBestMatch ? 'Yes' : 'No'}</DataCell>
-          <DataCell>{isBuyerMaker ? 'Yes' : 'No'}</DataCell>
-          <DataCell>{strToFixed(price, 2)}</DataCell>
-          <DataCell>{qty}</DataCell>
-          <DataCell>{quoteQty}</DataCell>
-          <DataCell>{time}</DataCell>
-        </TableRow>
-      );
+export function RecentTradesTable({ recentTrades }: RecentTradesTableProps) {
+  const recentTradesHeadList = [];
+  const recentTradesBodyList = [];
+
+  // recentTrades is an array, we use .entries to get an index
+  for (const [index, trade] of recentTrades.entries()) {
+    if (index === 0) {
+      for (const prop in trade) {
+        recentTradesHeadList.push(
+          <HeadCell key={trade.id}>
+            {propertiesNames[prop as keyof typeof propertiesNames]}
+          </HeadCell>
+        );
+      }
     }
-  );
+    const bodyRow: JSX.Element[] = [];
+    for (const prop in trade) {
+      bodyRow.push(<DataCell>{trade[prop as keyof typeof trade]}</DataCell>);
+    }
+    recentTradesBodyList.push(<TableRow key={index}>{bodyRow}</TableRow>);
+  }
 
   return (
     <Table>

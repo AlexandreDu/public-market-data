@@ -103,5 +103,11 @@ export type RecentTradesTableProps = {
 
 export type LayoutProps = React.PropsWithChildren;
 
+// hooks
+export type UseSortProps<T> = {
+  list: T[];
+  sortDirection: 'asc' | 'desc' | 'none';
+};
+
 // utils
 export type StrToFixed = (str: string, digit: number) => string;
