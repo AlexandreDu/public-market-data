@@ -86,7 +86,9 @@ export type TableBodyProps = React.PropsWithChildren;
 
 export type TableRowProps = React.PropsWithChildren;
 
-export type HeadCellProps = React.PropsWithChildren;
+export type HeadCellProps = React.PropsWithChildren<
+  React.ComponentPropsWithoutRef<'th'>
+>;
 
 export type DataCellProps = React.PropsWithChildren;
 
@@ -106,7 +108,6 @@ export type LayoutProps = React.PropsWithChildren;
 // hooks
 export type UseSortProps<T> = {
   list: T[];
-  sortDirection: 'asc' | 'desc' | 'none';
 };
 
 // utils

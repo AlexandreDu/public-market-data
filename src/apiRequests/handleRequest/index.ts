@@ -5,7 +5,6 @@ export async function handleRequest<T>({
   params,
   signal,
   url,
-  ...rest
 }: HandleRequestParams): Promise<{ data: T | null; error: string | null }> {
   try {
     const response = await binanceAPI.get<T>(url ? url : '', {
