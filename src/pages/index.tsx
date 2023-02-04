@@ -29,6 +29,9 @@ export function HomePage() {
     recentTradesError,
     retrieveRecentTrades,
   } = useRecentTrades();
+  console.log('ticker', ticker);
+  console.log('ticker24', ticker24h);
+  console.log('recentTrades', recentTrades);
 
   function handleSearch(symbol: string) {
     retrieveTicker(symbol);
