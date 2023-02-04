@@ -1,25 +1,25 @@
 # public-market-data
 
 # Built with 
-typescript
-react 18
-react-router-dom 6
-axios
-styled-components
-date-fns
-lodash
-react-loader-spinner
+typescript \
+react 18 \
+react-router-dom 6 \
+axios \
+styled-components \
+date-fns \
+lodash \
+react-loader-spinner \
 vite
 
 # Folder structure
-apiRequests
-components
-components/ui : shared components
-hooks
-pages
-propertiesNames: 
-styles: including theme and global styles
-types: typescript types
+apiRequests \
+components \
+components/ui: shared components \
+hooks \
+pages \
+propertiesNames \
+styles: including theme and global styles \
+types: typescript types \
 utils
 
 # About the project
