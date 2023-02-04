@@ -100,6 +100,18 @@ export type IconProps = FontAwesomeIconProps;
 
 export type ArrowProps = Omit<IconProps, 'icon'>;
 
+export type PaginationProps = {
+  totalCount: number;
+  currentPage: number;
+  handlePageChange: (pageNumber: number) => void;
+};
+
+export type PaginationBoxProps = {
+  pageNumber: number;
+  isSelected: boolean;
+  onClick: (pageNumber: number) => void;
+};
+
 // components
 export type ThemesProviderProps = React.PropsWithChildren;
 
@@ -115,6 +127,10 @@ export type LayoutProps = React.PropsWithChildren;
 
 // hooks
 export type UseSortProps<T> = {
+  list: T[];
+};
+
+export type UsePaginationProps<T> = {
   list: T[];
 };
 

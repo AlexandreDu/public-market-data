@@ -1,19 +1,19 @@
 import type { RecentTradesTableProps } from '../../../types';
 
 import { useSort } from '../../../hooks/useSort';
-
+import { usePagination } from '../../../hooks/usePagination';
 import { Table } from '../../ui/table';
 import { TableHead } from '../../ui/table/tableHead';
 import { TableBody } from '../../ui/table/tableBody';
 import { TableRow } from '../../ui/table/tableRow';
 import { HeadCell } from '../../ui/table/HeadCell';
 import { DataCell } from '../../ui/table/DataCell';
-
-import { propertiesNames } from '../../../propertiesNames';
+import { Pagination } from '../../ui/pagination';
 
 import { timestampToStr } from '../../../utils/timestampToStr';
-
 import { getSortIcon } from '../../../utils/components/recentTradesTable';
+
+import { propertiesNames } from '../../../propertiesNames';
 
 export function RecentTradesTable({ recentTrades }: RecentTradesTableProps) {
   const recentTradesHeadList: JSX.Element[] = [];
@@ -26,8 +26,12 @@ export function RecentTradesTable({ recentTrades }: RecentTradesTableProps) {
     sortDirections,
   } = useSort({ list: recentTrades });
 
+  const { rangeList, currentPage, handlePageChange } = usePagination({
+    list: sortedList,
+  });
+
   // recentTrades is an array, we use .entries to get an index in order to push only one time the header items
-  for (const [index, trade] of sortedList.entries()) {
+  for (const [index, trade] of rangeList.entries()) {
     if (index === 0) {
       for (const prop in trade) {
         let enableSort = false;
@@ -76,11 +80,18 @@ export function RecentTradesTable({ recentTrades }: RecentTradesTableProps) {
   }
 
   return (
-    <Table>
-      <TableHead>
-        <TableRow>{recentTradesHeadList}</TableRow>
-      </TableHead>
-      <TableBody>{recentTradesBodyList}</TableBody>
-    </Table>
+    <div>
+      <Table>
+        <TableHead>
+          <TableRow>{recentTradesHeadList}</TableRow>
+        </TableHead>
+        <TableBody>{recentTradesBodyList}</TableBody>
+      </Table>
+      <Pagination
+        totalCount={sortedList.length}
+        currentPage={currentPage}
+        handlePageChange={handlePageChange}
+      />
+    </div>
   );
 }
