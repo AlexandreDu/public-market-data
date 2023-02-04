@@ -22,7 +22,6 @@ export function SearchBar({ fullList, handleSearch }: SearchBarProps) {
       : null;
 
   function resetQuery() {
-    console.log('reset');
     setQuery('');
   }
 
