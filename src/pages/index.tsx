@@ -16,7 +16,7 @@ import { SearchBar } from '../components/ui/searchBar';
 export function HomePage() {
   const theme = useTheme();
 
-  const { currenciesPairs, error } = useCurrenciesPairs();
+  const { currenciesPairs } = useCurrenciesPairs();
 
   const { ticker, isLoadingTicker, tickerError, retrieveTicker } = useTicker();
 
@@ -39,12 +39,17 @@ export function HomePage() {
   return (
     <HomePageWrapper>
       <SearchBar fullList={currenciesPairs} handleSearch={handleSearch} />
+
       {!isLoadingTicker && ticker && <TickerTable ticker={ticker} />}
+      {tickerError && <p>{tickerError}</p>}
+
       {!isLoadingTicker24h && ticker24h && <TickerTable ticker={ticker24h} />}
+      {ticker24hError && <p>{ticker24hError}</p>}
 
       {!isLoadingRecentTrades && recentTrades && (
         <RecentTradesTable recentTrades={recentTrades} />
       )}
+      {recentTradesError && <p>{recentTradesError}</p>}
 
       {(isLoadingTicker || isLoadingTicker24h || isLoadingRecentTrades) && (
         <ThreeDots

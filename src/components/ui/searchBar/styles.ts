@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Input } from './input/styles';
 import { Icon } from '../icon/styles';
+
 export const SearchBar = styled.form`
   ${({ theme }) => `
     min-height: 3.5rem;
@@ -10,8 +11,6 @@ export const SearchBar = styled.form`
     background-color: ${theme.colors.white};
     color: ${theme.colors.black};
     border-radius: ${theme.radiuses.sm};
-    
-   
   `}
 `;
 
@@ -24,7 +23,8 @@ export const InputIconWrapper = styled.div`
     }
     > ${Input} {
       flex-grow: 1;
+      font-size: ${theme.fontSizes.md};
+
     }
-    
-    `}
+  `}
 `;

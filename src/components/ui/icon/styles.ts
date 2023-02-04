@@ -8,6 +8,6 @@ export const Icon = styled(FontAwesomeIcon).withConfig({
   shouldForwardProp: (prop) => !propsOnlyForStyledComponents.includes(prop),
 })<IconProps>`
   ${({ fontSize }) => `
-  ${fontSize ? `font-size: ${fontSize};` : ''}
-`}
+    ${fontSize ? `font-size: ${fontSize};` : ''}
+  `}
 `;

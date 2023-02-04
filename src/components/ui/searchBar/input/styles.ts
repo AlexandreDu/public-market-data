@@ -4,7 +4,6 @@ export const Input = styled.input`
   ${({ theme }) => `
     border: none;
     font-size: ${theme.fontSizes.md};
-  
-  
+    width: 100%;
   `}
 `;

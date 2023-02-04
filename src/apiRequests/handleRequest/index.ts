@@ -11,9 +11,7 @@ export async function handleRequest<T>({
       signal,
       params,
     });
-
     const { data } = response;
-
     return { data, error: null };
   } catch (err) {
     if (err instanceof Error) {

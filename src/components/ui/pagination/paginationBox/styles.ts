@@ -15,7 +15,6 @@ export const PaginationBox = styled.div<{ isSelected: boolean }>`
         ? `
       background-color: ${theme.colors.white};
       color: ${theme.colors.black};
-
     `
         : ''
     }

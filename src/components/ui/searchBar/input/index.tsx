@@ -1,4 +1,3 @@
-import { forwardRef } from 'react';
 import type { InputProps } from '../../../../types';
 import * as Styled from './styles';
 

@@ -6,13 +6,11 @@ import { theme } from '../../styles/themes';
 
 export function ThemesProvider({ children }: ThemesProviderProps) {
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <>
-          <GlobalStyle />
-          {children}
-        </>
-      </ThemeProvider>
-    </>
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyle />
+        {children}
+      </>
+    </ThemeProvider>
   );
 }

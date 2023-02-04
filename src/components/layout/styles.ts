@@ -6,8 +6,6 @@ export const Layout = styled.div`
   @media(min-width: ${theme.breakpoints.lg}) {
     width: 80%;
     margin: 0 auto;
-  
   }
-
 `}
 `;

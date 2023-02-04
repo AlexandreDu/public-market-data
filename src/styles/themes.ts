@@ -20,10 +20,6 @@ export const theme = {
     lg: '10px',
     full: '100vw',
   },
-  fonts: {
-    heading: 'Mukta Mahee, sans-serif',
-    body: 'Mukta Mahee, sans-serif',
-  },
   fontSizes: {
     xsm: '0.75rem',
     sm: '1rem',
