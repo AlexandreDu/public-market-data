@@ -29,6 +29,7 @@ export function SearchBar({ fullList, handleSearch }: SearchBarProps) {
     <Styled.SearchBar
       onSubmit={(e) => {
         e.preventDefault();
+        setQuery('');
         handleSearch(query.toUpperCase());
       }}
     >
@@ -39,6 +40,7 @@ export function SearchBar({ fullList, handleSearch }: SearchBarProps) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="search a crypto pair"
+          type="text"
         />
       </Styled.InputIconWrapper>
       {autoCompleteList && (

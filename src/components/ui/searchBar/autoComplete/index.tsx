@@ -11,7 +11,7 @@ export function AutoComplete({
   return (
     <Styled.AutoComplete>
       {limitedList.map((element) => (
-        <p
+        <li
           key={element}
           onClick={() => {
             resetQuery();
@@ -19,7 +19,7 @@ export function AutoComplete({
           }}
         >
           {element}
-        </p>
+        </li>
       ))}
     </Styled.AutoComplete>
   );

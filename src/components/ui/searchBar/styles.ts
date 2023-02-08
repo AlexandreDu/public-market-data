@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import { Input } from './input/styles';
 import { Icon } from '../icon/styles';
 
-export const SearchBar = styled.form`
+export const SearchBar = styled.form.attrs((props) => ({
+  name: 'searchbar',
+}))`
   ${({ theme }) => `
     min-height: 3.5rem;
     display: flex;
