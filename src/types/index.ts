@@ -53,6 +53,16 @@ export type RecentTradesResponse = {
   isBestMatch: boolean;
 }[];
 
+export type RecentTrades = {
+  id: number;
+  price: number;
+  qty: number;
+  quoteQty: number;
+  time: number;
+  isBuyerMaker: boolean;
+  isBestMatch: boolean;
+}[];
+
 export type GetAllCurrenciesPairsParams = {
   signal: AbortSignal;
 };
@@ -120,7 +130,7 @@ export type TickerTableProps = {
 };
 
 export type RecentTradesTableProps = {
-  recentTrades: RecentTradesResponse;
+  recentTrades: RecentTrades;
 };
 
 export type LayoutProps = React.PropsWithChildren;
