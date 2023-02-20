@@ -16,14 +16,12 @@ export function SearchBar({ fullList, handleSearch }: SearchBarProps) {
   const [query, setQuery] = useState('');
 
   const autoCompleteList =
-    fullList && query && query.length > 0
-      ? fullList
-          .map((symbol) => symbol)
-          .filter((symb) => {
-            const newRegex = new RegExp(`^${query}`, 'i');
-            return newRegex.test(symb);
-          })
-      : null;
+    fullList &&
+    query &&
+    fullList.filter((symb) => {
+      const newRegex = new RegExp(`^${query}`, 'i');
+      return newRegex.test(symb);
+    });
 
   function resetQuery() {
     setQuery('');

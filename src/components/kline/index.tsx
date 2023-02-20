@@ -23,21 +23,18 @@ export function Kline({ data }: KlineProps) {
   let max = 0;
 
   for (const [
-    index,
-    [
-      openTime,
-      openPrice,
-      highPrice,
-      lowPrice,
-      closePrice,
-      volume,
-      closeTime,
-      quoteAssetVolume,
-      tradesNumber,
-      takerBuyBaseAssetVolume,
-      takerBuyQuoteAssetVolume,
-    ],
-  ] of data.entries()) {
+    openTime,
+    openPrice,
+    highPrice,
+    lowPrice,
+    closePrice,
+    volume,
+    closeTime,
+    quoteAssetVolume,
+    tradesNumber,
+    takerBuyBaseAssetVolume,
+    takerBuyQuoteAssetVolume,
+  ] of data) {
     const numberClosePrice = parseFloat(closePrice);
 
     if (numberClosePrice < min) {
