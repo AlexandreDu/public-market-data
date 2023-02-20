@@ -7,8 +7,8 @@ export const HomePageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${theme.spaces.md};
-  @media(min-width: ${theme.breakpoints.lg}) {
-    gap: ${theme.spaces.lg};
+  @media(min-width: ${theme.breakpoints.md}) {
+   
   }
   `}
 `;

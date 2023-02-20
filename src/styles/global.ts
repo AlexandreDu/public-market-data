@@ -24,15 +24,16 @@ export default createGlobalStyle`
         }
 
         body {
-            background-color: #111;
+            background-color: ${theme.colors.darkBlue};
             color: #fff;
+            overflow-x: hidden;
         }
         *{
             margin: 0;
             padding: 0;
             outline:0;
             box-sizing:border-box;
-            font-family: Roboto, sans-serif;
+            font-family: 'Poppins', sans-serif;
 
         }
         #root{

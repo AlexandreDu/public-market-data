@@ -25,6 +25,7 @@ export function TickerTable({ ticker }: TickerTableProps) {
     if (key.toLowerCase().includes('time')) {
       isTimestampData = true;
     }
+    // ajouter fonction pour rajouter couleur et + sur les pourcentages
     tickerBodyList.push(
       <DataCell key={index + key + value}>
         {isTimestampData

@@ -14,11 +14,9 @@ export function usePagination<T>({ list }: UsePaginationProps<T>) {
       });
   }, []);
 
-  let startIndex = currentPage * 20 - 20;
-  const endIndex = startIndex + 20;
-  if (list && startIndex > list.length) {
-    startIndex = 0;
-  }
+  const startIndex = currentPage * 5 - 5;
+  const endIndex = startIndex + 5;
+
   const rangeList = list && list.slice(startIndex, endIndex);
 
   return {

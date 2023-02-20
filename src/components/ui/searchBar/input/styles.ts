@@ -2,8 +2,10 @@ import styled from 'styled-components';
 
 export const Input = styled.input`
   ${({ theme }) => `
+    width: 100%;
+    background-color: ${theme.colors.blue};
     border: none;
     font-size: ${theme.fontSizes.md};
-    width: 100%;
+    color:${theme.colors.white};
   `}
 `;

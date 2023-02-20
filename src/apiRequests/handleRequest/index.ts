@@ -11,6 +11,7 @@ export async function handleRequest<T>({
       signal,
       params,
     });
+    console.log('url, params', url, params);
     const { data } = response;
     return { data, error: null };
   } catch (err) {
@@ -19,6 +20,7 @@ export async function handleRequest<T>({
       if (signal && signal.aborted) {
         return { data: null, error: 'canceled' };
       }
+
       return { data: null, error: err.message };
     }
     return { data: null, error: 'unknown error' };

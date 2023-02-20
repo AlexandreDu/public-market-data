@@ -38,5 +38,12 @@ export const theme = {
     black: '#111',
     white: '#fff',
     grey: '#708090',
+    darkBlue: '#0A192F',
+    blue: '#222B45',
+    lightGreen: '#61F9D5',
+  },
+  transitions: {
+    sm: 0.25,
+    md: 0.5,
   },
 };

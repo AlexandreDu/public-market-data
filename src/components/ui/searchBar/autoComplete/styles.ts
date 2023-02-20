@@ -5,6 +5,8 @@ export const AutoComplete = styled.ul`
   ${({ theme }) => `
     padding-top: ${theme.spaces.md};
     font-size: ${theme.fontSizes.md};
+    color: ${theme.colors.white};
+ 
     > * {
       cursor: pointer;
     }

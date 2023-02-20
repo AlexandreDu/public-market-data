@@ -1,6 +1,10 @@
 import type { ArrowProps } from '../../../../types';
 
-import { faArrowUp, faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import {
+  faArrowUp,
+  faArrowDown,
+  faArrowRightArrowLeft,
+} from '@fortawesome/free-solid-svg-icons';
 
 import { useTheme } from 'styled-components';
 import { Icon } from '..';
@@ -13,7 +17,6 @@ export function ArrowUp({ ...props }: ArrowProps) {
       icon={faArrowUp}
       style={{
         color: theme.colors.white,
-        cursor: 'pointer',
       }}
     />
   );
@@ -21,14 +24,25 @@ export function ArrowUp({ ...props }: ArrowProps) {
 
 export function ArrowDown({ ...props }: ArrowProps) {
   const theme = useTheme();
+  const { style } = props;
+
   return (
     <Icon
       {...props}
       icon={faArrowDown}
-      style={{
-        color: theme.colors.white,
-        cursor: 'pointer',
-      }}
+      {...(style ? { style: { color: theme.colors.white, ...style } } : {})}
+    />
+  );
+}
+
+export function ArrowExchange({ ...props }: ArrowProps) {
+  const { style } = props;
+
+  return (
+    <Icon
+      {...props}
+      icon={faArrowRightArrowLeft}
+      {...(style ? { style: { ...style } } : {})}
     />
   );
 }

@@ -6,48 +6,47 @@ import { useTicker24h } from '../hooks/useTicker24h';
 import { useRecentTrades } from '../hooks/useRecentTrades';
 
 import { HomePageWrapper } from './styles';
+import { Card } from '../components/ui/card';
 import { TickerTable } from '../components/cryptoTable/ticker';
 import { RecentTradesTable } from '../components/cryptoTable/recentTrades';
 
 import { ThreeDots } from 'react-loader-spinner';
 
-import { SearchBar } from '../components/ui/searchBar';
-
 export function HomePage() {
   const theme = useTheme();
 
-  const { currenciesPairs } = useCurrenciesPairs();
+  // const { ticker, isLoadingTicker, tickerError, retrieveTicker } = useTicker();
 
-  const { ticker, isLoadingTicker, tickerError, retrieveTicker } = useTicker();
+  // const { ticker24h, isLoadingTicker24h, ticker24hError, retrieveTicker24h } =
+  //   useTicker24h();
 
-  const { ticker24h, isLoadingTicker24h, ticker24hError, retrieveTicker24h } =
-    useTicker24h();
-
-  const {
-    recentTrades,
-    isLoadingRecentTrades,
-    recentTradesError,
-    retrieveRecentTrades,
-  } = useRecentTrades();
-
-  function handleSearch(symbol: string) {
-    retrieveTicker(symbol);
-    retrieveTicker24h(symbol);
-    retrieveRecentTrades(symbol);
-  }
+  // const {
+  //   recentTrades,
+  //   isLoadingRecentTrades,
+  //   recentTradesError,
+  //   retrieveRecentTrades,
+  // } = useRecentTrades();
 
   return (
     <HomePageWrapper>
-      <SearchBar fullList={currenciesPairs} handleSearch={handleSearch} />
-
-      {!isLoadingTicker && ticker && <TickerTable ticker={ticker} />}
+      {/* {!isLoadingTicker && ticker && (
+        <Card title="Ticker">
+          <TickerTable ticker={ticker} />
+        </Card>
+      )}
       {tickerError && <p>{tickerError}</p>}
 
-      {!isLoadingTicker24h && ticker24h && <TickerTable ticker={ticker24h} />}
+      {!isLoadingTicker24h && ticker24h && (
+        <Card title="Ticker 24h">
+          <TickerTable ticker={ticker24h} />
+        </Card>
+      )}
       {ticker24hError && <p>{ticker24hError}</p>}
 
       {!isLoadingRecentTrades && recentTrades && (
-        <RecentTradesTable recentTrades={recentTrades} />
+        <Card title="Recent Trades">
+          <RecentTradesTable recentTrades={recentTrades} />
+        </Card>
       )}
       {recentTradesError && <p>{recentTradesError}</p>}
 
@@ -60,7 +59,7 @@ export function HomePage() {
           ariaLabel="three-dots-loading"
           visible={true}
         />
-      )}
+      )} */}
     </HomePageWrapper>
   );
 }

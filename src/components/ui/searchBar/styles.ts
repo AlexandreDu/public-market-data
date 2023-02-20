@@ -10,7 +10,7 @@ export const SearchBar = styled.form.attrs((props) => ({
     display: flex;
     flex-direction: column;
     padding: ${theme.spaces.md};
-    background-color: ${theme.colors.white};
+    background-color: ${theme.colors.blue};
     color: ${theme.colors.black};
     border-radius: ${theme.radiuses.sm};
   `}
